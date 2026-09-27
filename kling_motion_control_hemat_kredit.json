@@ -1,0 +1,233 @@
+{
+  "nodes": [
+    {
+      "id": "a2432f27-c2b8-4570-9e09-4ffe1fd7aec1",
+      "isModel": true,
+      "type": "custommodelV2",
+      "position": {
+        "x": 1650,
+        "y": 1930
+      },
+      "data": {
+        "kind": {
+          "type": "wildcard",
+          "model": {
+            "type": "predefined",
+            "name": "fal-ai/kling-Video/v2.6/standard/motion-control",
+            "version": "fal-ai/kling-Video/v2.6/standard/motion-control",
+            "service": "fal_imported",
+            "description": "Transfer movements from a reference video to any character image. Standard mode is the cost-effective tier ($0.07/second), ideal for portraits and simple animations."
+          },
+          "inputs": [
+            [
+              {
+                "id": "prompt",
+                "title": "Prompt",
+                "description": "Text prompt for the video generation. Can include positive and negative descriptions to add elements and motion effects.",
+                "validTypes": ["text"],
+                "required": false
+              },
+              null
+            ],
+            [
+              {
+                "id": "image_url",
+                "title": "image",
+                "description": "Reference image. The characters, backgrounds, and other elements in the generated video are based on this reference image. Characters should have clear body proportions, avoid occlusion, and occupy more than 5% of the image area.",
+                "validTypes": ["image"],
+                "required": true
+              },
+              null
+            ],
+            [
+              {
+                "id": "video_url",
+                "title": "video",
+                "description": "Reference video. The character actions in the generated video will be consistent with this reference video. Cost scales with reference video length ($0.07/second on Standard tier) — use a short (3-5s) clip to keep credit cost low. Max 10s when character_orientation is 'image'.",
+                "validTypes": ["image", "video", "audio", "3D", "text", "number", "boolean", "seed", "array", "lora", "kling-element", "runway-aleph2-keyframe"],
+                "required": true
+              },
+              null
+            ]
+          ],
+          "parameters": [
+            [
+              {
+                "id": "model",
+                "title": "Model",
+                "description": "Kling Motion Control type",
+                "constraint": {
+                  "type": "enum",
+                  "options": ["Pro", "Standard"]
+                },
+                "defaultValue": {
+                  "type": "string",
+                  "value": "Pro"
+                }
+              },
+              {
+                "type": "value",
+                "data": {
+                  "type": "string",
+                  "value": "Standard"
+                }
+              }
+            ],
+            [
+              {
+                "id": "keep_original_sound",
+                "title": "Keep Original Sound",
+                "description": "Whether to keep the original sound from the reference video.",
+                "constraint": {
+                  "type": "boolean"
+                },
+                "defaultValue": {
+                  "type": "boolean",
+                  "value": true
+                }
+              },
+              {
+                "type": "value",
+                "data": {
+                  "type": "boolean",
+                  "value": false
+                }
+              }
+            ],
+            [
+              {
+                "id": "character_orientation",
+                "title": "Character Orientation",
+                "description": "Controls whether the output character's orientation matches the reference image or video. 'image': orientation matches reference image, max 10s — cheaper since it caps duration. 'video': matches reference video, max 30s — more expensive since longer clips are allowed.",
+                "constraint": {
+                  "type": "enum",
+                  "options": ["image", "video"]
+                },
+                "defaultValue": {
+                  "type": "string",
+                  "value": "image"
+                }
+              },
+              {
+                "type": "value",
+                "data": {
+                  "type": "string",
+                  "value": "image"
+                }
+              }
+            ]
+          ],
+          "outputs": [
+            {
+              "id": "result",
+              "title": "result",
+              "description": "Result video"
+            }
+          ]
+        },
+        "menu": {
+          "icon": "EmojiObjectsIcon",
+          "isModel": true,
+          "displayName": "Kling Motion Control (Standard, hemat kredit)"
+        },
+        "name": "Kling Motion Control (Standard, hemat kredit)",
+        "color": "Red",
+        "label": null,
+        "model": {
+          "name": "fal-ai/kling-Video/v2.6/standard/motion-control",
+          "service": "fal_imported",
+          "version": "fal-ai/kling-Video/v2.6/standard/motion-control"
+        },
+        "output": {},
+        "params": {
+          "model": "Standard",
+          "keep_original_sound": false,
+          "character_orientation": "image"
+        },
+        "result": [],
+        "schema": {
+          "model": {
+            "type": "enum",
+            "order": 0,
+            "title": "Model",
+            "default": "Pro",
+            "options": ["Pro", "Standard"],
+            "description": "Kling Motion Control type"
+          },
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "required": false,
+            "description": "Text prompt for the video generation. Can include positive and negative descriptions to add elements and motion effects."
+          },
+          "keep_original_sound": {
+            "type": "boolean",
+            "title": "Keep Original Sound",
+            "default": true,
+            "required": false,
+            "description": "Whether to keep the original sound from the reference video."
+          },
+          "character_orientation": {
+            "type": "enum",
+            "title": "Character Orientation",
+            "options": ["image", "video"],
+            "required": true,
+            "description": "Controls duration cap and cost. 'image' = max 10s (cheaper), 'video' = max 30s (more expensive)."
+          }
+        },
+        "handles": {
+          "input": {
+            "prompt": {
+              "id": "e7dfb623-49f1-4721-b563-40814c4454e0",
+              "type": "text",
+              "label": "prompt",
+              "format": "text",
+              "required": false,
+              "description": "Text prompt for the video generation."
+            },
+            "image_url": {
+              "id": "23849317-61d9-463a-a019-0fec97a6cfb2",
+              "type": "image",
+              "label": "image",
+              "format": "text",
+              "required": true,
+              "description": "Reference image."
+            },
+            "video_url": {
+              "id": "71b66c49-368a-4451-bb6c-929aef10f6c7",
+              "type": "any",
+              "label": "video",
+              "format": "text",
+              "required": true,
+              "description": "Reference video — keep it short (3-5s) to hit ~10 credits."
+            }
+          },
+          "output": {
+            "result": {
+              "id": "bb0d416a-f903-4aa3-b5b5-5d9b01736721",
+              "type": "any",
+              "label": "result",
+              "order": 0,
+              "format": "uri",
+              "description": "Result video"
+            }
+          }
+        },
+        "version": 3,
+        "description": "Transfer movements from a reference video to any character image. Standard mode, image orientation (max 10s) — the cheapest available configuration ($0.07/second). To hit ~10 credits, trim the reference video to roughly 3-5 seconds before importing.",
+        "generations": [],
+        "cameraLocked": false,
+        "selectedIndex": 0,
+        "selectedOutput": 0
+      },
+      "createdAt": "2026-07-05T00:00:00.000Z",
+      "dragHandle": ".node-header",
+      "originalName": "Kling Motion Control (Standard, hemat kredit)",
+      "locked": false,
+      "width": 460,
+      "height": 560,
+      "selected": true
+    }
+  ],
+  "edges": []
+}

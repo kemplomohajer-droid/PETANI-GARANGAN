@@ -1,0 +1,168 @@
+{
+  "nodes": [
+    {
+      "id": "v1e2o3-l4i5t6e7-8b9c-0d1e2f3a4b5c",
+      "isModel": true,
+      "type": "custommodelV2",
+      "position": {
+        "x": 13600,
+        "y": 1400
+      },
+      "data": {
+        "kind": {
+          "type": "wildcard",
+          "model": {
+            "type": "predefined",
+            "name": "google/veo-3.1-lite",
+            "version": "google/veo-3.1-lite",
+            "service": "replicate",
+            "description": "Google Veo 3.1 Lite via Replicate - Versi ringan, barangkali lolos dari limitasi backend."
+          },
+          "inputs": [
+            [
+              {
+                "id": "prompt",
+                "title": "Prompt",
+                "validTypes": [
+                  "text"
+                ],
+                "required": true
+              },
+              null
+            ],
+            [
+              {
+                "id": "image_url",
+                "title": "Image",
+                "validTypes": [
+                  "image"
+                ],
+                "required": false
+              },
+              null
+            ]
+          ],
+          "parameters": [
+            [
+              {
+                "id": "aspect_ratio",
+                "title": "Aspect Ratio",
+                "constraint": {
+                  "type": "enum",
+                  "options": [
+                    "16:9",
+                    "9:16",
+                    "1:1"
+                  ]
+                },
+                "defaultValue": {
+                  "type": "string",
+                  "value": "9:16"
+                }
+              },
+              {
+                "type": "value",
+                "data": {
+                  "type": "string",
+                  "value": "9:16"
+                }
+              }
+            ]
+          ],
+          "outputs": [
+            {
+              "id": "result",
+              "title": "Result"
+            }
+          ]
+        },
+        "menu": {
+          "icon": "VideoLibraryIcon",
+          "isModel": true,
+          "displayName": "Veo 3.1 Lite (Bypass)"
+        },
+        "name": "Veo 3.1 Lite (Bypass)",
+        "color": "Teal",
+        "label": null,
+        "model": {
+          "name": "google/veo-3.1-lite",
+          "service": "replicate",
+          "version": "google/veo-3.1-lite"
+        },
+        "output": {},
+        "params": {
+          "prompt": "Cinematic catalog video, faceless model showcasing apparel, smooth motion, highly detailed, 9:16 aspect ratio",
+          "image_url": "",
+          "aspect_ratio": "9:16"
+        },
+        "result": [],
+        "schema": {
+          "prompt": {
+            "type": "string",
+            "order": 0,
+            "title": "Prompt",
+            "required": true
+          },
+          "image_url": {
+            "type": "string",
+            "order": 1,
+            "title": "Image",
+            "format": "uri",
+            "required": false
+          },
+          "aspect_ratio": {
+            "type": "enum",
+            "order": 2,
+            "title": "Aspect Ratio",
+            "default": "9:16",
+            "options": [
+              "16:9",
+              "9:16",
+              "1:1"
+            ]
+          }
+        },
+        "handles": {
+          "input": {
+            "prompt": {
+              "id": "hndl-prmpt-veolite",
+              "type": "text",
+              "label": "prompt",
+              "order": 0,
+              "format": "text",
+              "required": true
+            },
+            "image_url": {
+              "id": "hndl-img-veolite",
+              "type": "image",
+              "label": "image_url",
+              "order": 1,
+              "format": "uri",
+              "required": false
+            }
+          },
+          "output": [
+            "result"
+          ]
+        },
+        "version": 3,
+        "dark_color": "Yambo_Teal_Dark",
+        "isWildCard": true,
+        "description": "Veo 3.1 Lite via Replicate.",
+        "generations": [],
+        "border_color": "Yambo_Teal_Stroke",
+        "cameraLocked": false,
+        "selectedIndex": 0,
+        "selectedOutput": 0
+      },
+      "createdAt": "2026-07-07T09:12:00.000Z",
+      "dragHandle": ".node-header",
+      "originalName": "Veo 3.1 Lite (Bypass)",
+      "locked": false,
+      "width": 400,
+      "height": 240,
+      "selected": true
+    }
+  ],
+  "edges": []
+}

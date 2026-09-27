@@ -1,0 +1,171 @@
+{
+  "nodes": [
+    {
+      "id": "a2432f27-c2b8-4570-9e09-4ffe1fd7aec1",
+      "isModel": true,
+      "type": "custommodelV2",
+      "position": {
+        "x": 1650,
+        "y": 1930
+      },
+      "data": {
+        "kind": {
+          "type": "wildcard",
+          "model": {
+            "type": "predefined",
+            "name": "bytedance/seedance-2.0/fast/text-to-video",
+            "version": "bytedance/seedance-2.0/fast/text-to-video",
+            "service": "fal_imported",
+            "description": "ByteDance's most advanced text-to-video model, fast tier. Lower latency and cost with cinematic output, native audio, multi-shot editing, and director-level camera control."
+          },
+          "inputs": [
+            [
+              {
+                "id": "prompt",
+                "title": "Prompt",
+                "description": "Text prompt for the video generation. Describe camera movements, lighting, mood, and actions.",
+                "validTypes": ["text"],
+                "required": true
+              },
+              null
+            ]
+          ],
+          "parameters": [
+            [
+              {
+                "id": "duration",
+                "title": "Duration",
+                "description": "Duration of the video in seconds or auto.",
+                "constraint": {
+                  "type": "enum",
+                  "options": ["5", "10", "15", "auto"]
+                },
+                "defaultValue": {
+                  "type": "string",
+                  "value": "10"
+                }
+              },
+              {
+                "type": "value",
+                "data": {
+                  "type": "string",
+                  "value": "10"
+                }
+              }
+            ],
+            [
+              {
+                "id": "aspect_ratio",
+                "title": "Aspect Ratio",
+                "description": "The aspect ratio of the output video.",
+                "constraint": {
+                  "type": "enum",
+                  "options": ["16:9", "9:16", "1:1", "auto"]
+                },
+                "defaultValue": {
+                  "type": "string",
+                  "value": "16:9"
+                }
+              },
+              {
+                "type": "value",
+                "data": {
+                  "type": "string",
+                  "value": "16:9"
+                }
+              }
+            ],
+            [
+              {
+                "id": "resolution",
+                "title": "Resolution",
+                "description": "Output video resolution tier.",
+                "constraint": {
+                  "type": "enum",
+                  "options": ["720p"]
+                },
+                "defaultValue": {
+                  "type": "string",
+                  "value": "720p"
+                }
+              },
+              {
+                "type": "value",
+                "data": {
+                  "type": "string",
+                  "value": "720p"
+                }
+              }
+            ]
+          ],
+          "outputs": [
+            {
+              "id": "result",
+              "title": "result",
+              "description": "Result video"
+            }
+          ]
+        },
+        "menu": {
+          "icon": "EmojiObjectsIcon",
+          "isModel": true,
+          "displayName": "ByteDance Seedance 2.0 Fast (Text to Video)"
+        },
+        "name": "ByteDance Seedance 2.0 Fast (Text to Video)",
+        "color": "Red",
+        "label": null,
+        "model": {
+          "name": "bytedance/seedance-2.0/fast/text-to-video",
+          "service": "fal_imported",
+          "version": "bytedance/seedance-2.0/fast/text-to-video"
+        },
+        "output": {},
+        "params": {
+          "duration": "10",
+          "aspect_ratio": "16:9",
+          "resolution": "720p"
+        },
+        "result": [],
+        "schema": {
+          "prompt": {
+            "type": "string",
+            "title": "Prompt",
+            "required": true,
+            "description": "Text prompt for the video generation."
+          },
+          "duration": {
+            "type": "enum",
+            "title": "Duration",
+            "default": "10",
+            "options": ["5", "10", "15", "auto"],
+            "description": "Duration of the video in seconds or auto."
+          },
+          "aspect_ratio": {
+            "type": "enum",
+            "title": "Aspect Ratio",
+            "default": "16:9",
+            "options": ["16:9", "9:16", "1:1", "auto"],
+            "description": "The aspect ratio of the output video."
+          },
+          "resolution": {
+            "type": "enum",
+            "title": "Resolution",
+            "default": "720p",
+            "options": ["720p"],
+            "description": "Output video resolution tier."
+          }
+        },
+        "handles": {
+          "input": {
+            "prompt": {
+              "id": "e7dfb623-49f1-4721-b563-40814c4454e0",
+              "type": "text",
+              "label": "prompt",
+              "format": "text",
+              "required": true,
+              "description": "Text prompt for the video generation."
+            }
+          },
+          "output": {
+            "result": {
+              "id
